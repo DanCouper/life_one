@@ -1,6 +1,6 @@
-defmodule LifeOneTest do
+defmodule LifeTest do
   use ExUnit.Case
-  doctest LifeOne
+  doctest Life
 
   test "the truth" do
     assert 1 + 1 == 2
