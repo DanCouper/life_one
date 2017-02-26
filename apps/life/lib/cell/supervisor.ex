@@ -32,4 +32,11 @@ defmodule Cell.Supervisor do
     |> Supervisor.which_children
     |> Enum.map(fn {_,pid,_,_} -> pid end)
   end
+
+
+  def positions do
+    children()
+    |> Enum.map(&Cell.Worker.position/1)
+    |> Enum.map(fn {x,y} -> %{x: x, y: y} end)
+  end
 end

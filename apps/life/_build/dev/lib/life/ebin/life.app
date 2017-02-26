@@ -1,0 +1,10 @@
+{application,life,
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"life"},
+              {modules,['Elixir.Cell.Supervisor','Elixir.Cell.Worker',
+                        'Elixir.Patterns','Elixir.Universe.Supervisor',
+                        'Elixir.Universe.Worker']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {extra_applications,[logger]},
+              {mod,{'Elixir.Universe.Supervisor',[]}}]}.
