@@ -9,6 +9,7 @@ defmodule Interface.LifeChannel do
   def join("life", _, socket) do
     Enum.map(Cell.Supervisor.children, &Cell.Worker.reap/1)
     Enum.map(Patterns.diehard(20,20), &Cell.Worker.sow/1)
+
     {:ok, %{positions: Cell.Supervisor.positions}, socket}
   end
 
@@ -20,7 +21,7 @@ defmodule Interface.LifeChannel do
   def handle_in("tick", _, socket) do
     Universe.Worker.tick
 
-    broadcast!(socket, "tick", %{postions: Cell.Supervisor.positions})
+    broadcast!(socket, "tick", %{positions: Cell.Supervisor.positions})
 
     {:noreply, socket}
   end
